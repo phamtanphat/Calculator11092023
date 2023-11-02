@@ -2,6 +2,10 @@ package com.example.calculator11092023
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 
@@ -24,6 +28,17 @@ class MainActivity : AppCompatActivity() {
         btnMultiplication = findViewById(R.id.button_multiplication)
         btnDivision = findViewById(R.id.button_division)
 
-//        btnPlus.setOnClickListener()
+        // Alt + enter: Goi y sua loi
+        btnPlus.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                Log.d("BBB", "Plus ${this}")
+            }
+        })
+
+        // Lambda
+        btnMinus.setOnClickListener {
+            Log.d("BBB", "Minus ${this}")
+        }
+
     }
 }
