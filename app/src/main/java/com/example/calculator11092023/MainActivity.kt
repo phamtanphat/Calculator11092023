@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnMinus: Button
     private lateinit var btnMultiplication: Button
     private lateinit var btnDivision: Button
+    private lateinit var tvResult: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,18 +30,26 @@ class MainActivity : AppCompatActivity() {
         btnMinus = findViewById(R.id.button_minus)
         btnMultiplication = findViewById(R.id.button_multiplication)
         btnDivision = findViewById(R.id.button_division)
+        tvResult = findViewById(R.id.text_view_result)
 
         // Alt + enter: Goi y sua loi
-        btnPlus.setOnClickListener(object : View.OnClickListener{
-            override fun onClick(p0: View?) {
-                Log.d("BBB", "Plus ${this}")
+        btnPlus.setOnClickListener {
+            // Lay du lieu tu input
+            val textNumber1 = edtNumber1.text.toString()
+            val textNumber2 = edtNumber2.text.toString()
+
+            // Kiem tra gia tri rong
+            if (textNumber1.isBlank() || textNumber2.isBlank()) {
+                Toast.makeText(this@MainActivity, "Input invalid", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
-        })
 
-        // Lambda
-        btnMinus.setOnClickListener {
-            Log.d("BBB", "Minus ${this}")
+            // Chuyen kieu du lieu sang kieu so de xu ly
+            val number1 = textNumber1.toInt() // Ep kieu
+            val number2 = textNumber2.toInt() // Ep kieu
+            val result = number1 + number2
+            val textDisplay = "Result: $number1 + $number2 = $result"
+            tvResult.text = textDisplay
         }
-
     }
 }

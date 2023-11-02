@@ -23,14 +23,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Nhập số thứ 1" />
+        android:hint="Nhập số thứ 1"
+        android:inputType="number"
+        android:maxLength="5" />
 
     <EditText
         android:id="@+id/edit_text_number2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Nhập số thứ 2" />
+        android:hint="Nhập số thứ 2"
+        android:inputType="number"
+        android:maxLength="5" />
 
     <TextView
         android:id="@+id/text_view_result"
@@ -63,9 +67,9 @@
 
             <Button
                 android:id="@+id/button_minus"
-                android:layout_marginLeft="100dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
                 android:text="-"
                 android:textSize="25sp" />
 
@@ -87,9 +91,9 @@
 
             <Button
                 android:id="@+id/button_division"
-                android:layout_marginLeft="100dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
                 android:text="/"
                 android:textSize="25sp" />
 
